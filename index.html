@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Word Muter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Video Word Muter</h1>
+        <form id="muteForm">
+            <label for="words">Choose words to mute:</label><br>
+            <select id="words" multiple>
+                <option value="shit">shit</option>
+                <option value="fuck">fuck</option>
+                <option value="bitch">bitch</option>
+                <option value="ass">ass</option>
+            </select><br>
+            <input type="text" id="customWord" placeholder="Add custom word"><br>
+            <input type="file" id="videoUpload" accept="video/*"><br>
+            <button type="submit">Mute Words</button>
+        </form>
+        <div id="responseMessage"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
