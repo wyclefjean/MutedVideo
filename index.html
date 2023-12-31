@@ -1,14 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Mute Video Words</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>Mute Specific Words in Video</title>
 </head>
 <body>
-  <h1>Mute Video Words</h1>
-  <form action="/mute_video" method="POST" enctype="multipart/form-data">
-    <input type="file" name="video_file" accept="video/*,audio/*">
-    <input type="submit" value="Mute Video">
-  </form>
+    <form id="uploadForm" enctype="multipart/form-data">
+        <input type="file" id="videoFile" name="video" accept="video/*" required>
+        <input type="checkbox" name="wordsToMute" value="fuck"> Fuck<br>
+        <input type="checkbox" name="wordsToMute" value="shit"> Shit<br>
+        <input type="checkbox" name="wordsToMute" value="bitch"> Bitch<br>
+        <input type="checkbox" name="wordsToMute" value="pussy"> Pussy<br>
+        <input type="checkbox" name="wordsToMute" value="fuck"> ass<br>
+        <input type="checkbox" name="wordsToMute" value="shit"> dick<br>
+        <input type="checkbox" name="wordsToMute" value="bitch"> nigga<br>
+        <input type="checkbox" name="wordsToMute" value="pussy"> asshole<br>
+        <input type="checkbox" name="wordsToMute" value="fuck"> dickhead<br>
+        <input type="checkbox" name="wordsToMute" value="shit"> retard<br>
+        <button type="submit">Upload and Process</button>
+    </form>
+
+    <script>
+        document.getElementById('uploadForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            const formData = new FormData(this);
+            const response = await fetch('/upload', {
+                method: 'POST',
+                body: formData
+            });
+
+            if (response.ok) {
+                alert('Video uploaded and processing started.');
+            } else {
+                alert('Upload failed.');
+            }
+        });
+    </script>
 </body>
 </html>
