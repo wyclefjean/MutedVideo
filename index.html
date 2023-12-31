@@ -1,21 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Video Audio Muter</title>
+  <title>Mute Video Words</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Upload Video</h1>
-    <input type="file" id="videoUpload" accept="video/*" />
-    <h2>Select words to mute:</h2>
-    <div id="wordCheckboxes">
-        <input type="checkbox" id="fuck" name="words" value="fuck">
-        <label for="fuck">Fuck</label><br>
-        <!-- Add other predefined words here -->
-        <input type="text" id="customWord" placeholder="Type word...">
-        <button onclick="addWord()">Add Word</button>
-    </div>
-    <button onclick="processVideo()">Process Video</button>
-    <div id="loading" style="display:none;">Processing...</div>
-    <a id="downloadLink" style="display:none;">Download Processed Video</a>
+  <h1>Mute Video Words</h1>
+  <form action="/mute_video" method="POST" enctype="multipart/form-data">
+    <input type="file" name="video_file" accept="video/*,audio/*">
+    <input type="submit" value="Mute Video">
+  </form>
 </body>
 </html>
